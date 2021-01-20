@@ -25,12 +25,7 @@ spec:
       transaction.state.log.min.isr: 2
       log.message.format.version: "2.3"
     storage:
-      type: jbod
-      volumes:
-      - id: 0
-        type: persistent-claim
-        size: 10Gi
-        deleteClaim: false
+      type: ephemeral
     template:
       pod:
         affinity:
@@ -50,9 +45,7 @@ spec:
       requests:
         memory: 1400Mi
     storage:
-      type: persistent-claim
-      size: 10Gi
-      deleteClaim: false
+      type: ephemeral
     logging:
       type: inline
       loggers:
