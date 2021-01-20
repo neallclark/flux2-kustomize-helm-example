@@ -6,7 +6,7 @@ spec:
   releaseName: strimzi
   chart:
     spec:
-      chart: strimzi
+      chart: strimzi-kafka-operator
       sourceRef:
         kind: HelmRepository
         name: strimzi
