@@ -1,0 +1,80 @@
+apiVersion: kafka.strimzi.io/v1beta1
+kind: Kafka
+metadata:
+  name: kafka-cluster
+  namespace: strimzi
+spec:
+  kafka:
+    version: 2.4.0
+    replicas: 3
+    resources:
+      requests:
+        memory: 2500Mi
+    jvmOptions:
+      gcLoggingEnabled: false
+    logging:
+      type: inline
+      loggers:
+        kafka.root.logger.level: ERROR
+    listeners:
+      plain: {}
+      tls: {}
+    config:
+      offsets.topic.replication.factor: 3
+      transaction.state.log.replication.factor: 3
+      transaction.state.log.min.isr: 2
+      log.message.format.version: "2.3"
+    storage:
+      type: jbod
+      volumes:
+      - id: 0
+        type: persistent-claim
+        size: 10Gi
+        deleteClaim: false
+    template:
+      pod:
+        affinity:
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+            - topologyKey: "kubernetes.io/hostname"
+              labelSelector:
+                matchExpressions:
+                  - key: "strimzi.io/name"
+                    operator: In
+                    values: 
+                      - kafka-cluster-kafka
+
+  zookeeper:
+    replicas: 3
+    resources:
+      requests:
+        memory: 1400Mi
+    storage:
+      type: persistent-claim
+      size: 10Gi
+      deleteClaim: false
+    logging:
+      type: inline
+      loggers:
+        zookeeper.root.logger: ERROR
+    template:
+      pod:
+        affinity:
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+            - topologyKey: "kubernetes.io/hostname"
+              labelSelector:
+                matchExpressions:
+                  - key: "strimzi.io/name"
+                    operator: In
+                    values: 
+                      - kafka-cluster-zookeeper
+  entityOperator:
+    topicOperator:
+      resources:
+        requests:
+          memory: 600Mi
+    userOperator:
+      resources:
+        requests:
+          memory: 256Mi
