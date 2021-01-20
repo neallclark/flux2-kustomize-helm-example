@@ -26,18 +26,6 @@ spec:
       log.message.format.version: "2.3"
     storage:
       type: ephemeral
-    template:
-      pod:
-        affinity:
-          podAntiAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-            - topologyKey: "kubernetes.io/hostname"
-              labelSelector:
-                matchExpressions:
-                  - key: "strimzi.io/name"
-                    operator: In
-                    values: 
-                      - kafka-cluster-kafka
 
   zookeeper:
     replicas: 3
@@ -50,18 +38,7 @@ spec:
       type: inline
       loggers:
         zookeeper.root.logger: ERROR
-    template:
-      pod:
-        affinity:
-          podAntiAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-            - topologyKey: "kubernetes.io/hostname"
-              labelSelector:
-                matchExpressions:
-                  - key: "strimzi.io/name"
-                    operator: In
-                    values: 
-                      - kafka-cluster-zookeeper
+
   entityOperator:
     topicOperator:
       resources:
