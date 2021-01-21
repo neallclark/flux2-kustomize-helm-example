@@ -42,6 +42,8 @@ spec:
           value: filterdata
         - name: OUTPUT_TOPIC
           value: processeddata
+        - name: AVRO_SCHEMA_REGISTRY_URL
+          value: http://registry.kafka
         resources:
           limits:
             cpu: 1000m
