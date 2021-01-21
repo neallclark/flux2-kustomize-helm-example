@@ -5,4 +5,11 @@ resources:
   - namespace.yaml
   - release.yaml
   - cluster.yaml
+  - topic-data.yaml
+  - topic-fieldrules.yaml
+  - topic-filterdata.yaml
+  - topic-jobstart.yaml
+  - topic-outputdata.yaml
+  - topic-processeddata.yaml
+
 
