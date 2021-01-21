@@ -4,5 +4,6 @@ namespace: podinfo
 resources:
   #- ../base/podinfo
   - ../base/kafka-topics
+  - ../base/kafka-streams
 # patchesStrategicMerge:
 #   - podinfo-values.yaml
