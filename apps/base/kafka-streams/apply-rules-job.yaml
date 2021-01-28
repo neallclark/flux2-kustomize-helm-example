@@ -45,7 +45,7 @@ spec:
         - name: SECONDARY_OUTPUT_TOPIC
           value: filterdata
         - name: AVRO_SCHEMA_REGISTRY_URL
-          value: http://registry.kafka
+          value: http://schema-registry.kafka
         resources:
           limits:
             cpu: 1000m
