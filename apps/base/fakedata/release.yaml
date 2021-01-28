@@ -26,7 +26,7 @@ spec:
         - name: acr-secret
       containers:
       - name: fake-datad
-        image: sodadeveloper.azurecr.io/boost-test-kafka-producer:demo-3
+        image: sodadeveloper.azurecr.io/boost-test-kafka-producer:demo-4
         imagePullPolicy: IfNotPresent
         env:
         - name: Kafka__BrokerList
