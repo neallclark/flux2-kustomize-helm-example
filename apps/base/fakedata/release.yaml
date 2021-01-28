@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fake-data
+  namespace: applications
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.apply-rules-jobd: glob:demo-*
+    fluxcd.io/tag.init: glob:demo-*
+  labels:
+    app: fake-data
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: fake-data
+  template:
+    metadata:
+      labels:
+        app: fake-data
+    spec:
+      imagePullSecrets:
+        - name: acr-secret
+      containers:
+      - name: fake-datad
+        image: sodadeveloper.azurecr.io/boost-test-kafka-producer:demo-1
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: Kafka__BrokerList
+          value: kafka-cluster-kafka-brokers.kafka:9092
+        - name: Kafka__NumericTopic
+          value: data
+        - name: Kafka__JobStartTopic
+          value: jobstart
+        - name: Kafka__AvroSchemaRegistryUrl
+          value: http://registry.kafka
+        - name: FakeData__EnableKafkaStreamsDemo
+          value: "true"
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 5000Mi
+          requests:
+            cpu: 10m
+            memory: 4000Mi
