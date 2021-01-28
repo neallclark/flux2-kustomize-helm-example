@@ -12,5 +12,6 @@ resources:
   - topic-jobstart.yaml
   - topic-outputdata.yaml
   - topic-processeddata.yaml
+  - confluent-registry.yaml
 
 
