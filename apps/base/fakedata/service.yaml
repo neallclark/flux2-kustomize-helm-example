@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: fake-data
-  namespace: applications
+  namespace: kafka-streams
   labels:
     app: fake-data
 spec:

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fake-data
-  namespace: applications
+  namespace: kafka-streams
   annotations:
     fluxcd.io/automated: "true"
     fluxcd.io/tag.fakedatad: glob:demo-*
