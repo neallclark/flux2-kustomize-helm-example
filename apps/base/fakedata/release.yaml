@@ -5,8 +5,7 @@ metadata:
   namespace: applications
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.apply-rules-jobd: glob:demo-*
-    fluxcd.io/tag.init: glob:demo-*
+    fluxcd.io/tag.fakedatad: glob:demo-*
   labels:
     app: fake-data
 spec:
