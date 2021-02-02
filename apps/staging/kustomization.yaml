@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - ../base/kafka-streams
   - ../base/fakedata
+  - ../base/iotedge
 
 # patchesStrategicMerge:
 #   - podinfo-values.yaml

@@ -6,3 +6,4 @@ resources:
   - podinfo.yaml
   - strimzi.yaml
   - sealed-secrets.yaml
+  - microsoft-iotedge.yaml
