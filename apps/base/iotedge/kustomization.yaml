@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: iotedge
 resources:
   - device.yaml
+  - edge1-secrets-sealed.yaml
