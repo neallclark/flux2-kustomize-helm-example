@@ -4,4 +4,4 @@ resources:
   - sources
   - kafka
   - nginx
-  - sealed-secrets
+  - sealedsecrets
