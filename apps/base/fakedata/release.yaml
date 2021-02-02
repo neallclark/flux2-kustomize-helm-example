@@ -36,7 +36,7 @@ spec:
         - name: Kafka__JobStartTopic
           value: jobstart
         - name: Kafka__AvroSchemaRegistryUrl
-          value: http://schema-registry.kafka
+          value: http://avro-schema-registry.kafka
         - name: FakeData__EnableKafkaStreamsDemo
           value: "true"
         resources:
