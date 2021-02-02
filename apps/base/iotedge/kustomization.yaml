@@ -3,4 +3,3 @@ kind: Kustomization
 namespace: iotedge
 resources:
   - device.yaml
-  - namespace.yaml
