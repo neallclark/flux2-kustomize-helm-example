@@ -37,7 +37,7 @@ spec:
         - name: APPLICATION_ID
           value: streams-labeldata
         - name: SOURCE_TOPIC
-          value: data
+          value: processeddata
         - name: SECONDARY_SOURCE_TOPIC
           value: jobstart
         - name: OUTPUT_TOPIC

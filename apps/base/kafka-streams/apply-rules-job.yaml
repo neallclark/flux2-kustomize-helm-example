@@ -41,7 +41,7 @@ spec:
         - name: SECONDARY_SOURCE_TOPIC
           value: fieldrules
         - name: OUTPUT_TOPIC
-          value: data
+          value: processeddata
         - name: SECONDARY_OUTPUT_TOPIC
           value: filterdata
         - name: AVRO_SCHEMA_REGISTRY_URL
