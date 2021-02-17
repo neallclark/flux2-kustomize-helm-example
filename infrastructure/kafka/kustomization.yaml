@@ -13,5 +13,7 @@ resources:
   - topic-processeddata.yaml
   - confluent-registry.yaml
   - local-storage.yaml
+  - persistent-volumes.yaml
+  - persistent-cluster.yaml
 
 
