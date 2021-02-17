@@ -4,7 +4,6 @@ namespace: kafka
 resources:
   - namespace.yaml
   - release.yaml
-  - registry.yaml
   - cluster.yaml
   - topic-data.yaml
   - topic-fieldrules.yaml
@@ -13,5 +12,6 @@ resources:
   - topic-outputdata.yaml
   - topic-processeddata.yaml
   - confluent-registry.yaml
+  - local-storage.yaml
 
 
